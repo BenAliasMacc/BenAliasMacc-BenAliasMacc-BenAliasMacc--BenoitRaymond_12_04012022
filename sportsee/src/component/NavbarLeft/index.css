@@ -1,0 +1,24 @@
+.navbarLeft {
+    width: 7rem;
+    height: 100%;
+    background-color: black;
+}
+.navbarLeft nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.25rem;
+    padding-block: 16rem 10rem;
+}
+.navbarLeft nav a:hover{
+    transform: scale(1.1);
+}
+.copyright {
+    padding-bottom: 8rem;
+}
+.copyright p {
+    color: white;
+    font-size: 0.75rem;
+    white-space:nowrap;
+    transform: rotate(-90deg);
+}

@@ -1,0 +1,17 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  max-width: 1440px;
+  margin: auto;
+}
+main {
+  display: flex
+}
+a {
+  text-decoration: none;
+}

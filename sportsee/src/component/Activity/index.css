@@ -1,0 +1,17 @@
+.activityChart {
+    position: relative;
+    margin-top: 4.5rem;
+    background-color: #FBFBFB;
+    width: 835px;
+    height: 320px;
+}
+.activityChart h2 {
+    position: absolute;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    font-size: 1.25rem;
+}
+.recharts-default-legend {
+    margin-top: 1.5rem!important;
+    padding-bottom: 4rem!important;
+}

@@ -1,0 +1,21 @@
+.navbarTop {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 2rem;
+    align-items: center;
+    height: 5.5rem;
+    background-color: black;
+}
+.navbarTop__nav {
+    display: flex;
+    justify-content: space-around;
+    flex: 1;
+    padding-left: 2rem;
+    color: white;
+}
+.navbarTop__nav a {
+    color: white;
+}
+.navbarTop__nav a:hover {
+    transform: scale(1.1);
+}

@@ -15,3 +15,20 @@
     margin-top: 1.5rem!important;
     padding-bottom: 4rem!important;
 }
+.recharts-legend-item-text, .recharts-cartesian-axis-ticks {
+    color: #9B9EAC!important;
+}
+.chart-tooltip {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2.5rem;
+    height: 4rem;
+    background-color: #E60000;
+    font-size: 0.5rem;
+    color: white;
+    text-align: center;
+}
+.recharts-cartesian-axis-ticks {
+
+}

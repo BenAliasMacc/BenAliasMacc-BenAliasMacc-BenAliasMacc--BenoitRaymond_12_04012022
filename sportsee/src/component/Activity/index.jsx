@@ -2,7 +2,7 @@ import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'rec
 import React from 'react'
 import './index.css'
 
-function Activity({ userActivity }) {
+function Activity({ data }) {
     const formatDay = (item) => (new Date(item)).getDate()
 
     const CustomTooltip = ({ active, payload }) => active ? (
@@ -15,7 +15,7 @@ function Activity({ userActivity }) {
     return (
         <div className="activityChart">
             <h2>Activité quotidienne</h2>
-            <BarChart width={835} height={320} data={userActivity} margin={{left: 32}}>
+            <BarChart width={835} height={320} data={data} margin={{left: 32}}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
                 <XAxis dataKey="day" tickFormatter={formatDay}/>
                 <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin-5', 'dataMax+0']} tickCount={3} fill='#9B9EAC'/>

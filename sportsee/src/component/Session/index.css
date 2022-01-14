@@ -1,0 +1,29 @@
+.sessionChart {
+    background: linear-gradient(to right, #FF0000 70%, #dd0000 70%);
+    width: 258px;
+    height: 264px;
+    border-radius: 5px;
+    grid-row: 2;
+    grid-column: 1;
+}
+.sessionChart .recharts-wrapper {
+    padding-top: 4rem;
+}
+.sessionChart .chart-tooltip {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5rem;
+    height: 1.5rem;
+    background-color: white;
+    font-size: 0.5rem;
+}
+.sessionChart h2 {
+    position: absolute;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+    color: white;
+    z-index: 10;
+}

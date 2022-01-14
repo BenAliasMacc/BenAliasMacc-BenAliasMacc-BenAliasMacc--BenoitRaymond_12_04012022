@@ -1,24 +1,25 @@
 .activityChart {
     position: relative;
-    margin-top: 4.5rem;
     background-color: #FBFBFB;
     width: 835px;
     height: 320px;
+    grid-row: 1;
+    grid-column: 1/4;
 }
 .activityChart h2 {
     position: absolute;
     margin-top: 1.5rem;
     margin-left: 2rem;
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
-.recharts-default-legend {
+.activityChart .recharts-default-legend {
     margin-top: 1.5rem!important;
     padding-bottom: 4rem!important;
 }
-.recharts-legend-item-text, .recharts-cartesian-axis-ticks {
+.activityChart .recharts-legend-item-text, .recharts-cartesian-axis-ticks {
     color: #9B9EAC!important;
 }
-.chart-tooltip {
+.activityChart .chart-tooltip {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -28,7 +29,4 @@
     font-size: 0.5rem;
     color: white;
     text-align: center;
-}
-.recharts-cartesian-axis-ticks {
-
 }

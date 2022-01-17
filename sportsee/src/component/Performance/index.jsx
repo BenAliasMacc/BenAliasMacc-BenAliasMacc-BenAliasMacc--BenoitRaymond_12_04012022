@@ -1,5 +1,6 @@
-import { RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
+import { RadarChart, PolarGrid, PolarAngleAxis, Radar } from 'recharts';
 import React from 'react'
+import propTypes from 'prop-types'
 import './index.css'
 
 function Performance({ data, kind}) {
@@ -24,6 +25,14 @@ function Performance({ data, kind}) {
             </RadarChart>
         </div>
     )
+}
+
+Performance.propTypes = {
+    data: propTypes.arrayOf(propTypes.shape({
+        kind: propTypes.number,
+        value: propTypes.number.isRequired
+    })),
+    kind: propTypes.objectOf(propTypes.string).isRequired
 }
 
 export default Performance  

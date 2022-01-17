@@ -9,3 +9,9 @@
     column-gap: 30px;
     row-gap: 28px;
 }
+.keyDataContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-row: 1/3;
+}

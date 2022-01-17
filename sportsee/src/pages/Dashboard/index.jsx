@@ -1,32 +1,53 @@
 import Activity from '../../component/Activity/index.jsx';
 import Session from '../../component/Session/index.jsx';
 import Performance from '../../component/Performance/index.jsx';
+import Score from '../../component/Score/index.jsx';
 import Header from '../../component/Header/index.jsx';
-import { useState } from 'react';
+import KeyData from '../../component/KeyData/index.jsx';
 import { useParams } from 'react-router-dom'
+import { useState, useEffect} from 'react'
 import { mockedDataUser, mockedDataActivity, mockedDataSessions, mockedDataPerformance } from '../../data/mockedData.js'
+import { GetUserDatas, GetUserActivity, GetUserSessions, GetUserPerformance } from '../../data/data.js';
 import './index.css'
 
 function Dashboard() {
 
-    const [idFromUrl, setIdFromUrl] = useState(parseInt(useParams().id))
-    const [userData, setUserData] = useState(mockedDataUser.find(data => data.id === idFromUrl))
-    const [userActivity, setUserActivity] = useState(mockedDataActivity.find(data => data.userId === idFromUrl))
-    const [userSessions, setUserSessions] = useState(mockedDataSessions.find(data => data.userId === idFromUrl))
-    const [userPerformance, setUserPerformance] = useState(mockedDataPerformance.find(data => data.userId === idFromUrl))
+    const id = parseInt(useParams().id)
+    // UseRef pour passer ID dans useEffect
+    // const userId = props.match.params.id
+
+    const [userData, setUserData] = useState('');
+    const [userActivity, setUserActivity] = useState([]);
+    const [userSessions, setUserSessions] = useState([]);
+    const [userPerformance, setUserPerformance] = useState('');
     
-    console.log(mockedDataUser);
-    console.log(mockedDataActivity);
-    console.log(mockedDataSessions);
-    console.log(mockedDataPerformance);
+    useEffect(() => {
+    
+                    GetUserDatas(id).then(response => setUserData(response.data.data))
+                    GetUserActivity(id).then(response => setUserActivity(response.data.data))
+                    GetUserSessions(id).then(response => setUserSessions(response.data.data))
+                    GetUserPerformance(id).then(response => setUserPerformance(response.data.data))
+    }, [])
+
+    // Mocked DataView
+    // const userData = mockedDataUser.find(data => data.id === id)
+    // const userActivity = mockedDataActivity.find(data => data.userId === id)
+    // const userSessions = mockedDataSessions.find(data => data.userId === id)
+    // const userPerformance = mockedDataPerformance.find(data => data.userId === id)
+
+    const mappedKeyData = userData && (Object.keys(userData.keyData).map((elt, index) => <KeyData key={`${index}-${elt}`} data={elt} value={userData.keyData[elt]}/>))
 
     return (
         <div className='dashboard'>
-           <Header userName={userData.userInfos.firstName}/>
+           {userData && <Header userName={userData.userInfos.firstName}/>}
             <div className='charts'>
-                <Activity data={userActivity.sessions}/>
-                <Session data={userSessions.sessions}/>
-                <Performance data={userPerformance.data} kind={userPerformance.kind}/> 
+                {userActivity && <Activity data={userActivity.sessions}/>}
+                {userSessions && <Session data={userSessions.sessions}/>}
+                {userPerformance && <Performance data={userPerformance.data} kind={userPerformance.kind}/> }
+                {userData && <Score data={userData.todayScore || userData.score}/>}
+                <div className='keyDataContainer'>
+                    {mappedKeyData}
+                </div>
             </div>
         </div>
     )

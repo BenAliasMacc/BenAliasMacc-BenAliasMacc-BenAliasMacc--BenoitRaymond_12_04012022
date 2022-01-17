@@ -1,32 +1,42 @@
-// import { useState, useEffect } from 'react';
+import axios from 'axios';
+const baseURL = axios.create({
+   baseURL: 'http://localhost:3000/user'
+})
 
-async function GetUserDatas() {
-    const userData = await fetch('http://localhost:3000/user/' + 18)
-    .then(response => response.json())
+export const GetUserDatas = (id) => baseURL.get(`/${id}`)
 
-    console.log(userData);
-    return userData
-}
+export const GetUserActivity = (id) => baseURL.get(`/${id}/activity`)
 
-export default GetUserDatas
+export const GetUserSessions = (id) => baseURL.get(`/${id}/average-sessions`)
+
+export const GetUserPerformance = (id) => baseURL.get(`/${id}/performance`)
 
 
 
-// const GetUserDatas = () => {
-
-//     const [userData, setUserData] = useState([])
-
-//     useEffect(() => {
-//         async function fetchUserDatas() {
-//                 const response = await fetch('http://localhost:3000/user/' + 18)
-//                 const userData = await response.json()
-//                 setUserData(userData)
-//                 console.log(userData);
-//         }
-//         fetchUserDatas()
-//     }, [])
-    
-//     return userData
+// export async function GetUserDatas(id) {
+//     await fetch(`http://localhost:3000/user/${id}`)
+//     .then(response => {
+//         return response.json();
+//     });
 // }
 
-// export default GetUserDatas
+// export async function GetUserActivity(id) {
+//     const userData = await fetch(`http://localhost:3000/user/${id}/activity`)
+//     .then(response => response.json());
+
+//     return userData;
+// }
+
+// export async function GetUserSessions(id) {
+//     const userData = await fetch(`http://localhost:3000/user/${id}/average-sessions`)
+//     .then(response => response.json());
+
+//     return userData;
+// }
+
+// export async function GetUserPerformance(id) {
+//     const userData = await fetch(`http://localhost:3000/user/${id}/performance`)
+//     .then(response => response.json());
+
+//     return userData;
+// }

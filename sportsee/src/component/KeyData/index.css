@@ -1,0 +1,23 @@
+.keyData {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FBFBFB;
+    width: 258px;
+    height: 124px;
+    border-radius: 5px;
+}
+.keyData img {
+    margin-left: 2rem;
+}
+
+.keyData > div {
+    margin-right: 2rem;
+}
+.keyData h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+}
+.keyData p {
+    margin-right: 2rem;
+}

@@ -1,8 +1,10 @@
 import { BarChart, CartesianGrid, XAxis, YAxis, Tooltip, Legend, Bar } from 'recharts';
 import React from 'react'
+import propTypes from 'prop-types'
 import './index.css'
 
 function Activity({ data }) {
+    
     const formatDay = (item) => (new Date(item)).getDate()
 
     const CustomTooltip = ({ active, payload }) => active ? (
@@ -27,6 +29,14 @@ function Activity({ data }) {
             </BarChart>
         </div>
     )
+}
+
+Activity.propTypes = {
+    data: propTypes.arrayOf(propTypes.shape({
+        calories: propTypes.number.isRequired,
+        kilogram: propTypes.number.isRequired,
+        day: propTypes.string.isRequired
+    }))
 }
 
 export default Activity

@@ -1,0 +1,43 @@
+.scoreChart {
+    position: relative;
+    background: #FBFBFB;
+	width: 258px;
+    height: 264px;
+    border-radius: 5px;
+    grid-row: 2;
+}
+
+.scoreChart h2 {
+    position: absolute;
+    margin-top: 1.5rem;
+    margin-left: 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.innerCircle {
+    position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	width: 57%;
+	height: 57%;
+	border-radius: 50%;
+	background-color: white;
+}
+
+.objective {
+    position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	color: rgba(0, 0, 0, 0.65);
+	text-align: center;
+	line-height: 1.5rem;
+}
+
+.objective span {
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 700;
+    font-size: 26px;
+}

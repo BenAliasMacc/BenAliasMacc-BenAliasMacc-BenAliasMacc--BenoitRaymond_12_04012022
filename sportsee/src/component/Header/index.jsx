@@ -12,7 +12,7 @@ function Header({ userName }) {
 }
 
 Header.propTypes = {
-    userName: propTypes.string
+    userName: propTypes.string.isRequired
 }
 
 export default Header

@@ -3,14 +3,26 @@ import React from 'react'
 import './index.css'
 import propTypes from 'prop-types'
 
-function Session({ data}) {
+/**
+ * Get Session data from API
+ * @param { Object } data
+ * @return { jsx }
+ */
+function Session({ data }) {
 
-    console.log(data);
+    // Format Date
     const daysWeek = { 1: 'L', 2: 'M', 3: 'M', 4: 'J', 5: 'V', 6: 'S', 7: 'D' }
     const formatDay = (item) => daysWeek[item]
 
+    /**
+     * Custom Tooltip
+     * @param { boolean } active 
+     * @param { array } payload
+     * @return { jsx || null }
+     */
     const CustomTooltip = ({ active, payload }) => active ? (
         <div className="chart-tooltip">
+            {console.log(payload)}
             <div>{payload[0].value} min</div>
         </div>
     ) : null

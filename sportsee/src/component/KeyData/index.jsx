@@ -6,8 +6,13 @@ import glucidesIcon from '../../assets/glucidesIcon.svg'
 import lipidesIcon from '../../assets/lipidesIcon.svg'
 import proteinIcon from '../../assets/proteinIcon.svg'
 
+/**
+ * Get Score data from userData.keyData from API
+ * @param { Object } data
+ * @param { number } value
+ * @return { jsx }
+ */
 function KeyData({ data, value }) {
-
 
     const [keys, setKeys] = useState({ name: '', icon: '', unit:'' })
 
@@ -44,7 +49,7 @@ function KeyData({ data, value }) {
                 unit: 'g'
             }) 
         }
-    }, [])
+    }, [data])
 
     
 

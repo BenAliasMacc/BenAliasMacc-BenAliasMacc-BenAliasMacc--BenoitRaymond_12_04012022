@@ -3,6 +3,11 @@ import React from 'react'
 import './index.css'
 import propTypes from 'prop-types'
 
+/**
+ * Get Score data from userData.score || userData.todayScore from API
+ * @param { Object } data
+ * @return { jsx }
+ */
 function Score({data}) {
 
 	const pieData = [

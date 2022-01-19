@@ -3,10 +3,23 @@ import React from 'react'
 import propTypes from 'prop-types'
 import './index.css'
 
+/**
+ * Get Activity data from API
+ * @param { Object } data
+ * @return { jsx }
+ */
+
 function Activity({ data }) {
-    
+
+    // Format date
     const formatDay = (item) => (new Date(item)).getDate()
 
+    /**
+     * Custom Tooltip
+     * @param { boolean } active 
+     * @param { array } payload
+     * @return { jsx || null }
+     */
     const CustomTooltip = ({ active, payload }) => active ? (
         <div className="chart-tooltip">
             <div>{payload[0].value}kg</div>
@@ -19,8 +32,8 @@ function Activity({ data }) {
             <h2>Activité quotidienne</h2>
             <BarChart width={835} height={320} data={data} margin={{left: 32}}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                <XAxis dataKey="day" tickFormatter={formatDay}/>
-                <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin-5', 'dataMax+0']} tickCount={3} fill='#9B9EAC'/>
+                <XAxis dataKey="day" scale="point" padding={{ left: 10, right: 10 }} tickFormatter={formatDay}/>
+                <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin-5', 'dataMax+0']} tickCount={3}/>
                 <YAxis yAxisId="calories" hide domain={['dataMin-100', 'dataMax+0']} />
                 <Tooltip content={<CustomTooltip />}/>
                 <Legend verticalAlign="top" align="right" height={96}/>

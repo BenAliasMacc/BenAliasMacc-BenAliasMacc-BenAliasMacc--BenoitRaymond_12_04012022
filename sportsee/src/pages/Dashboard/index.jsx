@@ -6,15 +6,21 @@ import Header from '../../component/Header/index.jsx';
 import KeyData from '../../component/KeyData/index.jsx';
 import { useParams } from 'react-router-dom'
 import { useState, useEffect} from 'react'
-import { mockedDataUser, mockedDataActivity, mockedDataSessions, mockedDataPerformance } from '../../data/mockedData.js'
 import { GetUserDatas, GetUserActivity, GetUserSessions, GetUserPerformance } from '../../data/data.js';
 import './index.css'
+
+// Mocked Data for testing
+    // import { mockedDataUser, mockedDataActivity, mockedDataSessions, mockedDataPerformance } from '../../data/mockedData.js'
 
 function Dashboard() {
 
     const id = parseInt(useParams().id)
-    // UseRef pour passer ID dans useEffect
-    // const userId = props.match.params.id
+
+    // Mocked Data for testing
+        // const userData = mockedDataUser.find(data => data.id === id)
+        // const userActivity = mockedDataActivity.find(data => data.userId === id)
+        // const userSessions = mockedDataSessions.find(data => data.userId === id)
+        // const userPerformance = mockedDataPerformance.find(data => data.userId === id)
 
     const [userData, setUserData] = useState('');
     const [userActivity, setUserActivity] = useState([]);
@@ -22,19 +28,17 @@ function Dashboard() {
     const [userPerformance, setUserPerformance] = useState('');
     
     useEffect(() => {
-    
+                    /**
+                     * @param {number} id from URL
+                     * @return { Promise }
+                     */
                     GetUserDatas(id).then(response => setUserData(response.data.data))
                     GetUserActivity(id).then(response => setUserActivity(response.data.data))
                     GetUserSessions(id).then(response => setUserSessions(response.data.data))
                     GetUserPerformance(id).then(response => setUserPerformance(response.data.data))
-    }, [])
+    }, [id])
 
-    // Mocked DataView
-    // const userData = mockedDataUser.find(data => data.id === id)
-    // const userActivity = mockedDataActivity.find(data => data.userId === id)
-    // const userSessions = mockedDataSessions.find(data => data.userId === id)
-    // const userPerformance = mockedDataPerformance.find(data => data.userId === id)
-
+    // Verify if userData is true and map the keyData
     const mappedKeyData = userData && (Object.keys(userData.keyData).map((elt, index) => <KeyData key={`${index}-${elt}`} data={elt} value={userData.keyData[elt]}/>))
 
     return (

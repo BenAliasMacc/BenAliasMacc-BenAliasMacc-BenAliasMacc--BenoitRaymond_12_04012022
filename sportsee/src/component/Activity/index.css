@@ -31,3 +31,9 @@
     color: white;
     text-align: center;
 }
+.recharts-cartesian-axis-tick line {
+    display: none;
+}
+.yAxis line {
+    display: none;
+}

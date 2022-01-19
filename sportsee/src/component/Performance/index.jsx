@@ -3,6 +3,12 @@ import React from 'react'
 import propTypes from 'prop-types'
 import './index.css'
 
+/**
+ * Get Performance data from API
+ * @param { Object } data
+ * @param { string } kind
+ * @return { jsx }
+ */
 function Performance({ data, kind}) {
 
     const titleKind = {
@@ -14,13 +20,17 @@ function Performance({ data, kind}) {
         intensity: 'Intensité',
     }
 
+    /**
+    * Format title
+    * @param {number} id from URL
+    */
     const formatKind = (id) => titleKind[kind[id]]
 
     return (
         <div className='performanceChart'>
-            <RadarChart outerRadius={90} width={258} height={264} data={data} startAngle={210} endAngle={570}>
+            <RadarChart outerRadius='70%' width={258} height={280} data={data} startAngle={210} endAngle={570}>
                 <PolarGrid />
-                <PolarAngleAxis dataKey="kind" tickFormatter={formatKind} tick={{ fill: '#FFFFFF', fontSize: '0.75em'}}/>
+                <PolarAngleAxis dataKey="kind" dy={3} tickFormatter={formatKind} tick={{ fill: '#FFFFFF', fontSize: '0.75em'}} />
                 <Radar dataKey="value" fill="#FF0101B2" fillOpacity={0.7} />
             </RadarChart>
         </div>

@@ -1,5 +1,5 @@
 .sessionChart {
-    background: linear-gradient(to right, #FF0000 70%, #dd0000 70%);
+    background: #FF0000;
     width: 258px;
     height: 264px;
     border-radius: 5px;
@@ -27,4 +27,7 @@
     font-weight: 700;
     color: white;
     z-index: 10;
+}
+.recharts-xAxis line {
+    display: none;
 }

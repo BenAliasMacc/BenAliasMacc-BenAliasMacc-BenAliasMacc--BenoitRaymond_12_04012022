@@ -2,7 +2,7 @@ export const mockedDataUser = [
     {
         id: 12,
         userInfos: {
-            firstName: 'Karl',
+            firstName: 'Robert',
             lastName: 'Dovineau',
             age: 31,
         },
@@ -17,7 +17,7 @@ export const mockedDataUser = [
     {
         id: 18,
         userInfos: {
-            firstName: 'Cecilia',
+            firstName: 'Lea',
             lastName: 'Ratorez',
             age: 34,
         },

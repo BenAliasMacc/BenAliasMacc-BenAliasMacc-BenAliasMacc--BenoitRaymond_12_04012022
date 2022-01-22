@@ -31,9 +31,9 @@ function Session({ data }) {
         <div className='sessionChart'>
             <h2>Durée moyenne des<br/>sessions</h2>
             <LineChart width={258} height={200} data={data}>
-                <XAxis dataKey="day" fill='white' tickFormatter={formatDay} padding={{ left: 5, right: 5 }}/>
+                <XAxis dataKey="day" fill='white' tickFormatter={formatDay} tick={{fill: '#FFFFFF'}} padding={{ left: 5, right: 5 }}/>
                 <YAxis hide domain={['dataMin-10', 'dataMax+1']}/>
-                <Tooltip content={CustomTooltip} />
+                <Tooltip content={CustomTooltip} cursor={{stroke: "black", strokeOpacity: 0.1, strokeWidth: 60, fill: "rgba(255, 255, 255, 0.1)"}} />
                 <Line type="monotone" dataKey="sessionLength" stroke="white" dot={{r: 0}}/>
             </LineChart>
         </div>

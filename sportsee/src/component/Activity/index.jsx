@@ -32,7 +32,7 @@ function Activity({ data }) {
             <h2>Activité quotidienne</h2>
             <BarChart width={835} height={320} data={data} margin={{left: 32}}>
                 <CartesianGrid vertical={false} strokeDasharray="3 3" />
-                <XAxis dataKey="day" scale="point" padding={{ left: 10, right: 10 }} tickFormatter={formatDay}/>
+                <XAxis dataKey="day" tickFormatter={formatDay}/>
                 <YAxis yAxisId="kilogram" orientation="right" domain={['dataMin-5', 'dataMax+0']} tickCount={3}/>
                 <YAxis yAxisId="calories" hide domain={['dataMin-100', 'dataMax+0']} />
                 <Tooltip content={<CustomTooltip />}/>

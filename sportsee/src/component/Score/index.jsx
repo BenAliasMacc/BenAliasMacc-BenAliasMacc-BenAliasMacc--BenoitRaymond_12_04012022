@@ -9,11 +9,6 @@ import propTypes from 'prop-types'
  * @return { jsx }
  */
 function Score({data}) {
-
-	const pieData = [
-		{ name: "completed", value: data && data, fillColor: "#FF0000" },
-		{ name: "not-completed", value: 1 - data && data, fillColor: "transparent" },
-	  ];
 	
 	return (
 
@@ -22,21 +17,23 @@ function Score({data}) {
 			<div className='innerCircle' >
 				<PieChart width={160} height={160}>
 					<Pie
-						data={pieData}
-						dataKey="value"
-						innerRadius={70}
-						outerRadius={80}
-						startAngle={90}
-						endAngle={200}
-					>						
-					{pieData.map((entry, index) => (
-					<Cell
-						key={`cell-${index}`}
-						fill={entry.fillColor}
-						cornerRadius="50%"
-					/>
-					))}
-					</Pie>
+                    cx={'50%'} cy={'50%'}
+                    startAngle={90} endAngle={450}
+                    innerRadius={'85%'} outerRadius={'100%'}
+                    cornerRadius={'50%'}
+                    dataKey="value"
+                    data={[{name: 'score', value: data}, {name: 'total', value: 1 - data}]}
+                    >
+                        <Cell fill="#E60000" stroke="#E60000" />
+                        <Cell fill="transparent" stroke="transparent" />
+                    </Pie>
+                    <Pie 
+                    cx={'50%'} cy={'50%'}
+                    outerRadius={'85%'}
+                    fill="#FFFFFF"
+                    data={[{name: 'ring', value: 100}]}
+                    dataKey="value"
+                    />
 				</PieChart>
 
 				<div className='objective'>

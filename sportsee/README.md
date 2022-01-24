@@ -16,22 +16,27 @@ This project was bootstrapped with Create React App and use :
 
 Clone this repository
 
-git clone https://github.com/ShemoMFR/p12_OC/tree/master
+git clone https://github.com/BenAliasMacc/BenoitRaymond_12_04012022
 
-Install NPM packages
+Install NPM packages on back and front-end
 
-npm i
+Run the backend first 
 
-Run the project (port 3000 by default)
+npm start (port 3000 by default)
 
-npm start
+Run the project)
+
+npm start (port 3001 by default)
 
 Getting the backend
 
-This project uses a micro API available with instructions [here](https://github.com/OpenClassrooms-Student-Center/P9-front-end-dashboard)
-There are 2 users available for the time being, their URL are
-    http://localhost:3002/user/12
-    http://localhost:3002/user/18
+There are 2 users available, to switch on profile page select id on the url
+    http://localhost:3002/12
+    http://localhost:3002/18
+
+To check the dash with mockedData, select on src/pages/Dashboard/index.jsx
+
+Set the variable "mockedData" as "true"
 
 ## Contribute to the project
 
